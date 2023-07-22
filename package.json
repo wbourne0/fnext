@@ -1,0 +1,54 @@
+{
+  "name": "fnext",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "a wip replacement for nextjs",
+  "scripts": {
+    "start": "esbuild --sourcemap=inline --format=cjs server/index.ts | node --enable-source-maps -"
+  },
+  "exports": {
+    ".": {
+      "import": "./build/esm/index.mjs",
+      "require": "./build/cjs/index.js"
+    },
+    "./*": {
+      "import": "./build/esm/*.mjs",
+      "require": "./build/cjs/*.js"
+    }
+  },
+  "files": [
+    "build/**/*.js",
+    "injected/**/*"
+  ],
+  "dependencies": {
+    "@awaitjs/express": "^0.9.0",
+    "@babel/core": "^7.16.10",
+    "@babel/preset-react": "^7.16.7",
+    "@types/babel__core": "^7.1.18",
+    "@types/sane": "^2.0.1",
+    "cross-fetch": "^3.1.5",
+    "esbuild": "^0.14.11",
+    "fast-glob": "^3.2.11",
+    "next": "^12.0.10",
+    "sane": "^5.0.1",
+    "swc": "^1.0.11"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.133",
+    "@types/express": "^4.17.13",
+    "@types/module-alias": "^2.0.1",
+    "@types/node": "^17.0.10",
+    "@types/react": "^18.0.6",
+    "@types/react-dom": "^18.0.2",
+    "express": "^4.17.2",
+    "module-alias": "^2.2.2",
+    "raf": "^3.4.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-refresh": "^0.11.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
